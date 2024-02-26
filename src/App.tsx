@@ -6,17 +6,23 @@ import Home from './Pages/Home';
 import Header from './Component/Header';
 import AddPlanner from './Pages/AddPlanner';
 import Sidebar from './Pages/Sidebar';
-import {BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import {BrowserRouter as Router,Route, Routes } from 'react-router-dom';
 import Navbar from './Component/Navbar';
 
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Switch>
-        <Route path="/" />
-      </Switch>
-      </Router>
+    <div style={{ display: 'flex' }}>
+      <Sidebar />
+      <div style={{ flex: 1, padding: '10px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AddPlanner />} />
+          {/* <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
+      </div>
+    </div>
+  </Router>
   );
 }
 
